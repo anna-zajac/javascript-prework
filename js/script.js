@@ -8,14 +8,14 @@ function getMoveName(argMoveId) {
     } else if (argMoveId == 3 ) {
       return 'nożyce';
     } else {
-        printMessage('Nie znam ruchu o id' + argMoveId + '.');
+        printMessage('Nie znam ruchu o id ' + argMoveId + '.');
         return 'nieznany ruch';
     }
 }
 
 function displayResult(argPlayerMove, argComputerMove) {
     console.log('Wywołanie funkcji displayResult');
-    console.log ('argumenty: ' + argPlayerMove + ',' + argComputerMove);
+    console.log ('argumenty: ' + argPlayerMove + ', ' + argComputerMove);
     printMessage('Zagrałem ' + argComputerMove + ', a Ty ' + argPlayerMove);
 
     if (argPlayerMove == 'papier' && argComputerMove == 'kamień'){
@@ -33,16 +33,14 @@ function displayResult(argPlayerMove, argComputerMove) {
 
 let randomNumber = Math.floor(Math.random() * 3 + 1);
 console.log('Wylosowana liczba to: ' + randomNumber);
-
 let computerMove = getMoveName(randomNumber);
-let playerMove = getMoveName(randomNumber);
-
-displayResult(playerMove, computerMove);
 
 let playerInput = prompt('Wybierz swój ruch! 1: kamień, 2: papier, 3: nożyce.');
 console.log('Gracz wpisał: ' + playerInput);
+let playerMove = getMoveName(playerInput);
+console.log('moj wpisywany ruch to: ' + playerMove);
 
-
+displayResult(playerMove, computerMove);
 
 /*if(randomNumber == 1){
   computerMove = 'kamień';
